@@ -1,21 +1,22 @@
-const sponsors = [
-  { name: "OpenAI", logo: "", url: "#" }, // Put the sponsor logo paths in assets, or use placeholders
-  { name: "GitHub", logo: "", url: "#" },
-  { name: "Polygon", logo: "", url: "#" },
-];
-
-const Sponsors = () => (
-  <section id="sponsors" className="py-20 max-w-5xl mx-auto px-6">
-    <h2 className="text-3xl font-bold mb-8 text-primary font-mono">Sponsors</h2>
-    <div className="grid md:grid-cols-3 gap-8 items-center">
-      {sponsors.map((s, i) => (
-        <a href={s.url} key={i} className="bg-accent py-8 px-6 rounded-xl flex flex-col items-center hover:scale-105 transition">
-          {/* <img src={s.logo} alt={s.name} className="h-12 mb-2" /> */}
-          <span className="text-xl font-mono text-primary">{s.name}</span>
-        </a>
-      ))}
-    </div>
-  </section>
-);
+const Sponsors = () => {
+  return (
+    <section id="sponsors" className="py-20 max-w-5xl mx-auto px-6">
+      <h2 className="text-5xl font-bold mb-16 text-center">
+        <span className="bg-gradient-to-r from-[#6ebe44] to-[#dddf23] bg-clip-text text-transparent font-mono tracking-wider">
+          SPONSORS
+        </span>
+        <div className="w-32 h-1 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] mx-auto mt-4"></div>
+      </h2>
+      
+      <div className="flex justify-center">
+        <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-800 py-8 px-12 rounded-xl flex items-center justify-center hover:scale-105 hover:border-[#6ebe44]/50 transition-all duration-300 group">
+          <span className="text-3xl font-mono bg-gradient-to-r from-[#6ebe44] to-[#dddf23] bg-clip-text text-transparent font-bold">
+            UNSTOP
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default Sponsors;

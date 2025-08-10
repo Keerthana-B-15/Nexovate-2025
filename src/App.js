@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Tracks from './components/Tracks';
+import RulesSection from './components/RulesSection';
 import Team from './components/Team';
 import Prizes from './components/Prizes';
 import Timeline from './components/Timeline';
@@ -15,6 +16,7 @@ const App = () => (
     <Hero />
     <About />
     <Tracks />
+    <RulesSection />
     <Timeline />
     <Sponsors />
     <Team />
