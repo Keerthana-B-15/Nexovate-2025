@@ -267,27 +267,6 @@ const RulesSection = () => {
             <h4 className="text-3xl font-bold text-green-500 mb-2">₹1,00,000</h4>
             <p className="text-gray-300">Total Cash Prize Pool</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-yellow-600 to-yellow-800 p-6 rounded-lg text-center">
-              <div className="text-4xl mb-3">🏆</div>
-              <h5 className="text-white font-bold text-lg mb-2">1st Prize</h5>
-              <p className="text-yellow-100 text-2xl font-bold">₹50,000</p>
-              <p className="text-yellow-200 text-sm mt-2">Swags + Certificate</p>
-            </div>
-            <div className="bg-gradient-to-br from-gray-400 to-gray-600 p-6 rounded-lg text-center">
-              <div className="text-4xl mb-3">🥈</div>
-              <h5 className="text-white font-bold text-lg mb-2">2nd Prize</h5>
-              <p className="text-gray-100 text-2xl font-bold">₹30,000</p>
-              <p className="text-gray-200 text-sm mt-2">Swags + Certificate</p>
-            </div>
-            <div className="bg-gradient-to-br from-orange-600 to-orange-800 p-6 rounded-lg text-center">
-              <div className="text-4xl mb-3">🥉</div>
-              <h5 className="text-white font-bold text-lg mb-2">3rd Prize</h5>
-              <p className="text-orange-100 text-2xl font-bold">₹20,000</p>
-              <p className="text-orange-200 text-sm mt-2">Swags + Certificate</p>
-            </div>
-          </div>
 
           <div>
             <h4 className="text-green-500 font-semibold mb-3">Additional Perks</h4>

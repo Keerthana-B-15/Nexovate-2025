@@ -126,6 +126,12 @@ const Prizes = () => (
       <p className="text-gray-300 mt-6 text-lg max-w-2xl mx-auto">
         Compete for amazing rewards and recognition for your innovative solutions
       </p>
+      {/* Prize Pool Total - Made bigger */}
+      <div className="mt-10 p-8 bg-accent/50 rounded-2xl border border-primary/20 inline-block hover:border-primary/40 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
+        <div className="text-primary font-mono text-sm uppercase tracking-wider mb-3 opacity-80">Total Prize Pool</div>
+        <div className="text-4xl font-bold text-white mb-2 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] bg-clip-text text-transparent">₹1,00,000</div>
+        <div className="w-20 h-1 bg-gradient-to-r from-primary to-[#dddf23] rounded-full mx-auto"></div>
+      </div>
     </div>
 
     {/* Prizes Grid */}
@@ -148,11 +154,7 @@ const Prizes = () => (
         <div className="w-8 h-px bg-gradient-to-l from-transparent to-[#dddf23]"></div>
       </div>
       
-      {/* Prize Pool Total */}
-      <div className="mt-8 p-4 bg-accent/50 rounded-xl border border-primary/20 inline-block">
-        <div className="text-primary font-mono text-xs uppercase tracking-wider mb-1">Total Prize Pool</div>
-        <div className="text-2xl font-bold text-white">₹1,00,000</div>
-      </div>
+      
     </div>
   </section>
 );

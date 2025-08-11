@@ -3,9 +3,51 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 const events = [
-  { stage: "Domain and Problem Statements Released", date: "31 July - 1 Aug", color: "border-primary", hoverColor: "hsl(90, 70%, 70%)" },
-  { stage: "Idea Submission Deadline", date: "31st August", color: "border-pink-500", hoverColor: "hsl(340, 70%, 70%)" },
-  { stage: "Results Announcement", date: "2nd Week of September", color: "border-primary", hoverColor: "hsl(90, 70%, 70%)" },
+  { 
+    stage: "Domain & Problem Statements Released", 
+    date: "12th August", 
+    details: "Registrations Open • PPT submission",
+    color: "border-[#6ebe44]", 
+    bgColor: "bg-[#6ebe44]/10",
+    icon: "📋",
+    status: "active"
+  },
+  { 
+    stage: "Registration Deadline", 
+    date: "20th August", 
+    details: "Final day for team registration and initial submissions",
+    color: "border-red-500", 
+    bgColor: "bg-red-500/10",
+    icon: "⏰",
+    status: "active"
+  },
+  { 
+    stage: "Evaluation Phase", 
+    date: "21st - 22nd August", 
+    details: "Evaluation done on all submissions",
+    color: "border-orange-500", 
+    bgColor: "bg-orange-500/10",
+    icon: "⚖️",
+    status: "upcoming"
+  },
+  { 
+    stage: "Results Declaration", 
+    date: "23rd August, 10 AM", 
+    details: "Shortlisted teams announced",
+    color: "border-blue-500", 
+    bgColor: "bg-blue-500/10",
+    icon: "🎯",
+    status: "upcoming"
+  },
+  { 
+    stage: "Main Hackathon Event", 
+    date: "29th Aug 9 AM - 30th Aug 4 PM", 
+    details: "Presidency University, Bengaluru • 24 hours of coding",
+    color: "border-[#dddf23]", 
+    bgColor: "bg-[#dddf23]/10",
+    icon: "🚀",
+    status: "upcoming"
+  },
 ];
 
 const Timeline = () => {
@@ -18,38 +60,141 @@ const Timeline = () => {
     }
   }, [controls, inView]);
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, x: -50, scale: 0.9 },
+    visible: { 
+      opacity: 1, 
+      x: 0, 
+      scale: 1,
+      transition: { 
+        duration: 0.6,
+        type: "spring",
+        bounce: 0.3
+      } 
+    },
+  };
+
+  const getStatusColor = (status) => {
+    switch(status) {
+      case 'completed': return 'text-green-400';
+      case 'active': return 'text-yellow-400';
+      case 'upcoming': return 'text-gray-400';
+      default: return 'text-gray-400';
+    }
+  };
+
+  const getStatusText = (status) => {
+    switch(status) {
+      case 'completed': return 'Completed';
+      case 'active': return 'Active';
+      case 'upcoming': return 'Upcoming';
+      default: return '';
+    }
   };
 
   return (
-    <section id="timeline" className="py-20 px-6 max-w-4xl mx-auto bg-dark">
-      <h2 className="text-4xl font-bold mb-12 text-secondary text-center font-mono tracking-wider">TIMELINE</h2>
+    <section id="timeline" className="py-20 px-6 max-w-6xl mx-auto relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-[#6ebe44] to-[#dddf23] rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-40 h-40 bg-gradient-to-tl from-[#dddf23] to-[#6ebe44] rounded-full blur-3xl"></div>
+      </div>
+
+      {/* Enhanced Header */}
+      <div className="text-center mb-20 relative z-10">
+        <h2 className="text-5xl font-bold mb-6">
+          <span className="bg-gradient-to-r from-[#6ebe44] to-[#dddf23] bg-clip-text text-transparent font-mono tracking-wider">
+            TIMELINE
+          </span>
+        </h2>
+        <div className="w-32 h-1 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] mx-auto mb-8"></div>
+        <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Your roadmap to Nexovate 2025 • Mark your calendars
+        </p>
+      </div>
+
       <div ref={ref} className="relative">
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-700" />
-        {events.map((ev, i) => (
-          <motion.div
-            key={i}
-            className={`mb-16 flex ${i % 2 === 0 ? 'justify-start' : 'justify-end'} w-full`}
-            custom={i}
-            initial="hidden"
-            animate={controls}
-            variants={itemVariants}
-          >
+        {/* Main timeline line */}
+        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-[#6ebe44] via-gray-700 to-[#dddf23] rounded-full" />
+        
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={controls}
+          className="relative z-10"
+        >
+          {events.map((event, index) => (
             <motion.div
-              className={`p-4 rounded-xl w-[45%] text-${i % 2 === 0 ? 'left' : 'right'} ${ev.color}`}
-              style={{ borderWidth: '4px', borderStyle: 'solid', borderColor: 'transparent' }}
-              whileHover={{ borderColor: ev.hoverColor }}
-              transition={{ duration: 0.3 }}
+              key={index}
+              variants={itemVariants}
+              className={`mb-12 flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'} w-full relative`}
             >
-              <p className="text-primary text-sm font-mono">{ev.date}</p>
-              <p className="text-gray-300 text-lg font-semibold mt-2">{ev.stage}</p>
-              {i === 1 && <p className="text-gray-500 text-sm mt-1">Registration Closes (Can be extended if needed)</p>}
-              {i === 0 && <p className="text-gray-500 text-sm mt-1">Registrations Open PPT submission and voice over</p>}
+              {/* Timeline dot */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-2 z-20">
+                <div className={`w-16 h-16 ${event.bgColor} border-4 ${event.color} rounded-full flex items-center justify-center shadow-lg backdrop-blur-sm group-hover:scale-110 transition-all duration-300`}>
+                  <span className="text-2xl">{event.icon}</span>
+                </div>
+              </div>
+
+              {/* Event card */}
+              <motion.div
+                className={`group relative w-[45%] ${index % 2 === 0 ? 'mr-8' : 'ml-8'}`}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
+                {/* Arrow pointing to timeline */}
+                <div className={`absolute top-8 ${index % 2 === 0 ? '-right-4' : '-left-4'} w-4 h-4 bg-gray-900 border-l border-b border-gray-700 transform rotate-45`}></div>
+                
+                {/* Main card */}
+                <div className={`bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 shadow-xl group-hover:border-[#6ebe44]/50 transition-all duration-300 group-hover:shadow-2xl ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
+                  {/* Status badge */}
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider mb-3 ${event.bgColor} ${getStatusColor(event.status)} border ${event.color}`}>
+                    <div className={`w-2 h-2 rounded-full ${event.status === 'active' ? 'animate-pulse' : ''} ${getStatusColor(event.status).replace('text-', 'bg-')}`}></div>
+                    {getStatusText(event.status)}
+                  </div>
+
+                  {/* Date */}
+                  <div className={`text-lg font-bold mb-3 font-mono ${event.color.replace('border-', 'text-')} group-hover:scale-105 transition-transform duration-300`}>
+                    {event.date}
+                  </div>
+
+                  {/* Stage title */}
+                  <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-[#6ebe44] transition-colors duration-300">
+                    {event.stage}
+                  </h3>
+
+                  {/* Details */}
+                  <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                    {event.details}
+                  </p>
+
+                  {/* Decorative gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#6ebe44]/5 via-transparent to-[#dddf23]/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                </div>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        ))}
+          ))}
+        </motion.div>
+
+        {/* Bottom accent */}
+        <div className="text-center mt-24 relative z-10">
+          <div className="inline-flex items-center space-x-4 text-gray-400 text-sm">
+            <div className="w-6 h-px bg-gradient-to-r from-transparent via-[#6ebe44] to-transparent"></div>
+            <span className="font-mono tracking-wider text-xs uppercase px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
+              🏆 Ready to compete?
+            </span>
+            <div className="w-6 h-px bg-gradient-to-l from-transparent via-[#dddf23] to-transparent"></div>
+          </div>
+        </div>
       </div>
     </section>
   );

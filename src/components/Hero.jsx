@@ -4,6 +4,7 @@ import bg from '../assests/bg.jpg';
 
 const Hero = () => (
   <section
+    id="home"
     className="relative flex flex-col items-center text-center py-32 overflow-hidden"
     style={{ minHeight: '600px' }}
   >
