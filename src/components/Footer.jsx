@@ -17,8 +17,7 @@ const Footer = () => {
     }));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = (e) => {
     setIsSubmitting(true);
     
     // Simulate form submission
@@ -71,10 +70,10 @@ const Footer = () => {
             {/* Contact Info */}
             <div className="text-center md:text-right">
               <h4 className="text-lg font-semibold text-white mb-4 font-mono">Get in Touch</h4>
-              <div className="space-y-3">
+              <div className="space-y-3 flex flex-col items-center md:items-end">
                 <button
                   onClick={() => setShowForm(true)}
-                  className="group bg-gradient-to-r from-[#6ebe44] to-[#dddf23] text-black px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-all duration-300 flex items-center gap-2 mx-auto md:ml-auto"
+                  className="group bg-gradient-to-r from-[#6ebe44] to-[#dddf23] text-black px-6 py-2 rounded-lg font-semibold hover:scale-105 transition-all duration-300 flex items-center gap-2"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -83,10 +82,10 @@ const Footer = () => {
                 </button>
                 
                 <a 
-                  href="mailto:contact@nexovate.com" 
+                  href="mailto:harvestclub.presidency@gmail.com" 
                   className="block text-gray-400 hover:text-[#dddf23] transition-colors duration-300 text-sm"
                 >
-                  📧 contact@nexovate.com
+                  📧 harvestclub.presidency@gmail.com
                 </a>
                 
                 <div className="text-gray-400 text-sm">
@@ -132,7 +131,7 @@ const Footer = () => {
         </div>
       </footer>
 
-      {/* Contact Form Modal - Moved outside footer for proper layering */}
+      {/* Contact Form Modal */}
       {showForm && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4" style={{ zIndex: 9999 }}>
           <div className="bg-gray-900 border border-gray-700 rounded-2xl p-8 w-full max-w-md relative shadow-2xl">

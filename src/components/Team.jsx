@@ -1,24 +1,5 @@
 import { useState, useCallback, memo } from 'react';
 
-
-
-// Replace dummy images with your actual imports when ready:
-// import zafar from '../assests/zafar.png';
-// import josephine from '../assests/josephine.png';
-// import jaikumar from '../assests/jaikumar.png';
-// import navaneeth from '../assests/navaneeth.png';
-// import hida from '../assests/hida.png';
-// import chandreyi from '../assests/chandreyi.png';
-// import umar from '../assests/umar.png';
-// import tanai from '../assests/tanai.png';
-// import keerthana from '../assests/keerthana.png';
-// import sarah from '../assests/sarah.png';
-// import praveen from '../assests/praveen.png';
-// import rudra from '../assests/rudra.png';
-// import shreeraksha from '../assests/shreeraksha.png';
-// import rishabh from '../assests/rishabh.png';
-// import shrujanya from '../assests/shrujanya.png';
-
 const teamMembers = [
   { name: "Dr. ZAFAR ALI KHAN N", role: "Club Convenor", image: "https://via.placeholder.com/400x400/6ebe44/000000?text=ZK", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "faculty" },
   { name: "Ms. JOSEPHINE R", role: "Club Coordinator", image: "https://via.placeholder.com/400x400/6ebe44/000000?text=JR", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "faculty" },
@@ -37,14 +18,14 @@ const teamMembers = [
   { name: "SHRUJANYA M", role: "Core Member", image: "https://via.placeholder.com/400x400/6ebe44/000000?text=SM", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
 ];
 
-// Memoized Team Member Card for better performance
+// Memoized Team Member Card with consistent height
 const TeamMemberCard = memo(({ member, index, isHovered, onHover, onLeave }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [imageError, setImageError] = useState(false);
 
   return (
     <div
-      className="group relative"
+      className="group relative h-full"
       onMouseEnter={() => onHover(index)}
       onMouseLeave={onLeave}
     >
@@ -53,7 +34,7 @@ const TeamMemberCard = memo(({ member, index, isHovered, onHover, onLeave }) => 
         ${isHovered ? 'scale-105 -translate-y-2' : 'hover:scale-102'}
         bg-gray-900/80 backdrop-blur-sm
         border border-gray-800 hover:border-[#6ebe44]/30
-        will-change-transform
+        will-change-transform h-full flex flex-col
       `}>
         
         {/* Optimized Background Gradient */}
@@ -66,18 +47,18 @@ const TeamMemberCard = memo(({ member, index, isHovered, onHover, onLeave }) => 
         <div className="absolute top-4 right-4 w-2 h-2 bg-[#6ebe44] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
         {/* Content */}
-        <div className="relative z-10 flex flex-col items-center text-center">
-          {/* Larger Image Container with Loading State */}
+        <div className="relative z-10 flex flex-col items-center text-center flex-1">
+          {/* Image Container with Loading State */}
           <div className="relative mb-6">
-            <div className="w-40 h-40 sm:w-44 sm:h-44 rounded-full overflow-hidden border-3 border-gray-700 shadow-xl transition-all duration-300 group-hover:border-[#6ebe44]/60 bg-gray-800">
+            <div className="w-32 h-32 rounded-full overflow-hidden border-3 border-gray-700 shadow-xl transition-all duration-300 group-hover:border-[#6ebe44]/60 bg-gray-800">
               {!imageLoaded && !imageError && (
                 <div className="w-full h-full flex items-center justify-center">
-                  <div className="w-8 h-8 border-2 border-[#6ebe44] border-t-transparent rounded-full animate-spin"></div>
+                  <div className="w-6 h-6 border-2 border-[#6ebe44] border-t-transparent rounded-full animate-spin"></div>
                 </div>
               )}
               
               {imageError ? (
-                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#6ebe44] to-[#dddf23] text-black font-bold text-2xl">
+                <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#6ebe44] to-[#dddf23] text-black font-bold text-xl">
                   {member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
                 </div>
               ) : (
@@ -96,26 +77,31 @@ const TeamMemberCard = memo(({ member, index, isHovered, onHover, onLeave }) => 
             </div>
             
             {/* Status Indicator */}
-            <div className="absolute -bottom-1 -right-1 w-6 h-6 bg-gradient-to-br from-[#6ebe44] to-[#dddf23] rounded-full flex items-center justify-center shadow-lg">
-              <div className="w-2 h-2 bg-black rounded-full"></div>
+            <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-gradient-to-br from-[#6ebe44] to-[#dddf23] rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
             </div>
           </div>
 
-          {/* Name */}
-          <h3 className="text-xl font-bold text-white mb-3 transition-colors duration-300 group-hover:text-[#6ebe44] leading-tight px-2">
-            {member.name}
-          </h3>
+          {/* Name - Fixed height container */}
+          <div className="mb-4 min-h-[3.5rem] flex items-center">
+            <h3 className="text-lg font-bold text-white transition-colors duration-300 group-hover:text-[#6ebe44] leading-tight px-2 text-center">
+              {member.name}
+            </h3>
+          </div>
 
-          {/* Role Badge */}
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800/80 border border-gray-700 group-hover:border-[#6ebe44]/40 transition-all duration-300">
-            <span className="text-sm font-medium text-gray-300 group-hover:text-[#dddf23] transition-colors duration-300">
+          {/* Role Badge - Consistent styling */}
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-gray-800/80 border border-gray-700 group-hover:border-[#6ebe44]/40 transition-all duration-300 mb-4 min-h-[2.5rem]">
+            <span className="text-sm font-medium text-gray-300 group-hover:text-[#dddf23] transition-colors duration-300 text-center">
               {member.role}
             </span>
           </div>
 
+          {/* Spacer to push hover line to bottom */}
+          <div className="flex-1"></div>
+
           {/* Hover Effect - Animated Line */}
           <div className={`
-            mt-4 h-0.5 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] transition-all duration-300 rounded-full
+            h-0.5 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] transition-all duration-300 rounded-full
             ${isHovered ? 'w-16' : 'w-0'}
           `}></div>
         </div>
@@ -184,8 +170,8 @@ const Team = () => {
         ))}
       </div>
 
-      {/* Optimized Team Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" style={{ contain: 'layout' }}>
+      {/* Team Grid with Equal Heights */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 auto-rows-fr" style={{ contain: 'layout' }}>
         {filteredMembers.map((member, i) => (
           <TeamMemberCard
             key={`${member.name}-${i}`}
