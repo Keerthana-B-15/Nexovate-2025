@@ -23,6 +23,7 @@ const Navbar = () => {
     { id: 'sponsors', label: 'SPONSORS' },
     { id: 'team', label: 'TEAM' },
     { id: 'prizes', label: 'PRIZES' },
+    { id: 'location', label: 'FIND US' },
     { id: 'faq', label: 'FAQ' },
   ];
 
@@ -32,16 +33,8 @@ const Navbar = () => {
   };
 
   const handleDownloadPPT = () => {
-    // Create a direct download link to file in public folder
-    const link = document.createElement('a');
-    link.href = 'NEXOVATE PPT Template.pdf'; // Path relative to public folder
-    link.download = 'NEXOVATE_PPT_Template.pdf';
-    link.target = '_blank'; // Optional: opens in new tab if download fails
-    
-    // Trigger download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Open Google Docs presentation in new tab
+    window.open('https://docs.google.com/presentation/d/1nLcUWZf3fxeff_A62P4u_RqpbArnlU_TCCK5EE9kZvE/edit?usp=drivesdk', '_blank');
   };
 
   return (

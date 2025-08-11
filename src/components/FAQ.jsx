@@ -2,9 +2,9 @@ import { useState } from "react";
 
 const faqs = [
   { q: "Who can participate?", a: "Only UG students are eligible to participate." },
-  { q: "Is there any fee?", a: "Yes, the fee is ₹800 per team for selected teams only." },
-  { q: "How do teams work?", a: "Teams must consist of 4 members, with no inter-college teams allowed." },
-  { q: "What is the event format?", a: "Offline hackathon with on-ground finale." },
+  { q: "Is there any fee?", a: "Yes, the fee is ₹800 per team for shortlisted teams only." },
+  { q: "How do teams work?", a: "Teams must consist of 4 members, and interdisciplinary as well as cross-institutional teams are encouraged." },
+  { q: "What is the event format?", a: "24 hours Offline Hackathon." },
   { q: "Where is the venue?", a: "The event will be held at Presidency University, Bengaluru." },
 ];
 

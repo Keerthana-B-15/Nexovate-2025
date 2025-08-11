@@ -168,6 +168,7 @@ const RulesSection = () => {
               <div className="bg-gray-800 p-4 rounded-lg">
                 <h5 className="text-white font-medium mb-2">Day 1</h5>
                 <div className="space-y-1 text-sm text-gray-300">
+                  <p>• Snacks</p>
                   <p>• Lunch</p>
                   <p>• Dinner</p>
                   <p>• Midnight snacks</p>
@@ -238,11 +239,11 @@ const RulesSection = () => {
               </div>
               <div className="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
                 <span className="text-white">Relevance to Track</span>
-                <span className="text-green-500 font-bold">20%</span>
+                <span className="text-green-500 font-bold">10%</span>
               </div>
               <div className="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
                 <span className="text-white">Implementation & Functionality</span>
-                <span className="text-green-500 font-bold">20%</span>
+                <span className="text-green-500 font-bold">30%</span>
               </div>
               <div className="flex justify-between items-center bg-gray-800 p-3 rounded-lg">
                 <span className="text-white">Presentation & Communication</span>

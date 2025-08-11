@@ -2,7 +2,7 @@ const prizes = [
   { 
     title: "1st Prize", 
     amount: "₹50,000", 
-    extras: "Swags + Certificate",
+    extras: "Swags + Goodies + Certificate",
     position: "🥇",
     gradient: "from-yellow-400 via-yellow-500 to-amber-600",
     bgGlow: "from-yellow-400/20 to-amber-600/20",

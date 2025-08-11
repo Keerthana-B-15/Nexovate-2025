@@ -7,6 +7,7 @@ import Team from './components/Team';
 import Prizes from './components/Prizes';
 import Timeline from './components/Timeline';
 import Sponsors from './components/Sponsors';
+import CollegeMap from './components/CollegeMap';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
@@ -21,6 +22,7 @@ const App = () => (
     <Sponsors />
     <Team />
     <Prizes />
+    <CollegeMap />
     <FAQ />
     <Footer />
   </div>

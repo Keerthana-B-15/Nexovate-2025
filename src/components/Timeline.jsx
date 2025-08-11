@@ -41,7 +41,7 @@ const events = [
   },
   { 
     stage: "Main Hackathon Event", 
-    date: "29th Aug 9 AM - 30th Aug 4 PM", 
+    date: "29th Aug 09:30 AM - 30th Aug 4 PM", 
     details: "Presidency University, Bengaluru • 24 hours of coding",
     color: "border-[#dddf23]", 
     bgColor: "bg-[#dddf23]/10",
@@ -83,22 +83,54 @@ const Timeline = () => {
     },
   };
 
-  const getStatusColor = (status) => {
-    switch(status) {
-      case 'completed': return 'text-green-400';
-      case 'active': return 'text-yellow-400';
-      case 'upcoming': return 'text-gray-400';
-      default: return 'text-gray-400';
-    }
-  };
+  // Pill Status Component
+  const PillStatus = ({ status }) => {
+    const getConfig = (status) => {
+      switch(status) {
+        case 'completed':
+          return {
+            bg: 'bg-emerald-500/20',
+            border: 'border-emerald-400',
+            text: 'text-emerald-300',
+            dot: 'bg-emerald-400',
+            icon: '✓'
+          };
+        case 'active':
+          return {
+            bg: 'bg-amber-500/20',
+            border: 'border-amber-400',
+            text: 'text-amber-300',
+            dot: 'bg-amber-400 animate-pulse',
+            icon: '⚡'
+          };
+        case 'upcoming':
+          return {
+            bg: 'bg-slate-500/20',
+            border: 'border-slate-400',
+            text: 'text-slate-300',
+            dot: 'bg-slate-400',
+            icon: '⏳'
+          };
+        default:
+          return {
+            bg: 'bg-gray-500/20',
+            border: 'border-gray-400',
+            text: 'text-gray-300',
+            dot: 'bg-gray-400',
+            icon: '○'
+          };
+      }
+    };
 
-  const getStatusText = (status) => {
-    switch(status) {
-      case 'completed': return 'Completed';
-      case 'active': return 'Active';
-      case 'upcoming': return 'Upcoming';
-      default: return '';
-    }
+    const config = getConfig(status);
+
+    return (
+      <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium uppercase tracking-wider ${config.bg} ${config.text} ${config.border} border backdrop-blur-sm`}>
+        <div className={`w-2 h-2 rounded-full ${config.dot}`}></div>
+        <span>{config.icon}</span>
+        <span>{status}</span>
+      </div>
+    );
   };
 
   return (
@@ -156,10 +188,9 @@ const Timeline = () => {
                 
                 {/* Main card */}
                 <div className={`bg-gray-900/60 backdrop-blur-sm border border-gray-800 rounded-2xl p-6 shadow-xl group-hover:border-[#6ebe44]/50 transition-all duration-300 group-hover:shadow-2xl ${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
-                  {/* Status badge */}
-                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-wider mb-3 ${event.bgColor} ${getStatusColor(event.status)} border ${event.color}`}>
-                    <div className={`w-2 h-2 rounded-full ${event.status === 'active' ? 'animate-pulse' : ''} ${getStatusColor(event.status).replace('text-', 'bg-')}`}></div>
-                    {getStatusText(event.status)}
+                  {/* Status badge - Now using PillStatus component */}
+                  <div className="mb-3">
+                    <PillStatus status={event.status} />
                   </div>
 
                   {/* Date */}
@@ -184,16 +215,15 @@ const Timeline = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Bottom accent */}
-        <div className="text-center mt-24 relative z-10">
-          <div className="inline-flex items-center space-x-4 text-gray-400 text-sm">
-            <div className="w-6 h-px bg-gradient-to-r from-transparent via-[#6ebe44] to-transparent"></div>
-            <span className="font-mono tracking-wider text-xs uppercase px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
-              🏆 Ready to compete?
-            </span>
-            <div className="w-6 h-px bg-gradient-to-l from-transparent via-[#dddf23] to-transparent"></div>
-          </div>
+      </div>
+      {/* Bottom accent with smaller lines */}
+      <div className="text-center mt-2 relative z-10">
+        <div className="inline-flex items-center space-x-3 text-gray-400 text-sm">
+          <div className="w-3 h-px bg-gradient-to-r from-transparent via-[#6ebe44] to-transparent"></div>
+          <span className="font-mono tracking-wider text-xs uppercase px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
+            🏆 Ready to compete?
+          </span>
+          <div className="w-3 h-px bg-gradient-to-l from-transparent via-[#dddf23] to-transparent"></div>
         </div>
       </div>
     </section>
