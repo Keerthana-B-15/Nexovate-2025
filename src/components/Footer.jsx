@@ -8,6 +8,7 @@ const Footer = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showForm, setShowForm] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -17,16 +18,58 @@ const Footer = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
-    setIsSubmitting(true);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     
-    // Simulate form submission
-    setTimeout(() => {
-      alert('Thank you for your message! We\'ll get back to you soon.');
-      setFormData({ name: '', email: '', message: '' });
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please fill in all required fields.'
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
+    try {
+      const response = await fetch('https://formspree.io/f/xanbkoyw', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          _subject: `New contact form submission from ${formData.name}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you for your message! We\'ll get back to you soon.'
+        });
+        setFormData({ name: '', email: '', message: '' });
+        
+        // Close form after 2 seconds
+        setTimeout(() => {
+          setShowForm(false);
+          setSubmitStatus({ type: '', message: '' });
+        }, 2000);
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again or contact us directly.'
+      });
+    } finally {
       setIsSubmitting(false);
-      setShowForm(false);
-    }, 1500);
+    }
   };
 
   return (
@@ -137,7 +180,10 @@ const Footer = () => {
           <div className="bg-gray-900 border border-gray-700 rounded-2xl p-8 w-full max-w-md relative shadow-2xl">
             {/* Close button */}
             <button
-              onClick={() => setShowForm(false)}
+              onClick={() => {
+                setShowForm(false);
+                setSubmitStatus({ type: '', message: '' });
+              }}
               className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors duration-300 z-10"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,6 +194,28 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] bg-clip-text text-transparent">
               Contact Us
             </h3>
+
+            {/* Status Message */}
+            {submitStatus.message && (
+              <div className={`mb-6 p-4 rounded-lg ${
+                submitStatus.type === 'success' 
+                  ? 'bg-green-900/50 border border-green-700 text-green-300' 
+                  : 'bg-red-900/50 border border-red-700 text-red-300'
+              }`}>
+                <div className="flex items-center gap-2">
+                  {submitStatus.type === 'success' ? (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  ) : (
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  )}
+                  <span className="text-sm">{submitStatus.message}</span>
+                </div>
+              </div>
+            )}
 
             <div className="space-y-6">
               <div>
