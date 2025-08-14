@@ -85,7 +85,7 @@ const Hero = () => (
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300 group-hover:blur-md animate-pulse"></div>
         <a
-          href="#register"
+          href="https://unstop.com/p/nexovate25-presidency-university-bengaluru-1538192"
           className="relative bg-gradient-to-r from-[#6ebe44] to-[#dddf23] text-black px-10 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 hover:shadow-2xl text-xl group-hover:from-[#5aa838] group-hover:to-[#c9ca1f] flex items-center gap-3"
         >
           <span>Register Now</span>
