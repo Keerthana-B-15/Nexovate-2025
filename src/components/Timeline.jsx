@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer';
 const events = [
   { 
     stage: "Domain & Problem Statements Released", 
-    date: "12th August", 
+    date: "14th August", 
     details: "Registrations Open • PPT submission",
     color: "border-[#6ebe44]", 
     bgColor: "bg-[#6ebe44]/10",

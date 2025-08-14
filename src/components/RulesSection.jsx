@@ -195,11 +195,11 @@ const RulesSection = () => {
         <div className="space-y-4">
           <div className="flex items-start space-x-3">
             <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-            <p className="text-gray-300">Teams may brainstorm and ideate before the event, but all implementation (coding, design, hardware assembly) must begin only after the hackathon starts</p>
+            <p className="text-gray-300">Teams may brainstorm and ideate before the event, but all implementation (coding, design) must begin only after the hackathon starts</p>
           </div>
           <div className="flex items-start space-x-3">
             <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
-            <p className="text-gray-300">Both software and hardware projects are allowed</p>
+            <p className="text-gray-300">Only software projects are allowed</p>
           </div>
           <div className="flex items-start space-x-3">
             <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
