@@ -21,10 +21,6 @@ const Sponsors = () => {
             
             {/* Main card */}
             <div className="relative bg-gray-900/60 backdrop-blur-sm border border-gray-800 py-12 px-16 rounded-2xl flex flex-col items-center justify-center hover:scale-105 hover:border-[#6ebe44]/50 transition-all duration-300 group-hover:shadow-2xl group-hover:shadow-[#6ebe44]/10">
-              {/* Partnership badge */}
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-[#6ebe44] to-[#dddf23] text-black px-6 py-2 rounded-full text-sm font-bold tracking-wide">
-                POWERED BY
-              </div>
               
               {/* UNSTOP logo/text */}
               <div className="text-center">
