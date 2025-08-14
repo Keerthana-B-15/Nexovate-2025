@@ -77,6 +77,12 @@ const RulesSection = () => {
                 <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
                 <p className="text-gray-300">Only one submission per team is allowed</p>
               </div>
+              <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                <p className="text-gray-300">All shortlisted teams will receive an email and will be invited to attend the in-person
+hackathon.</p>
+              </div>
+              
             </div>
           </div>
           <div>
@@ -184,6 +190,12 @@ const RulesSection = () => {
               </div>
             </div>
           </div>
+          <div className="flex items-start space-x-3">
+                <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                <p className="text-gray-300">Participants are allowed to bring small items (blankets, cushions, eye masks, etc.) for their
+comfort during the overnight stay. All belongings will be checked upon entry into the
+campus and organizers are not responsible for loss or damage to participants’ belongings.</p>
+              </div>
         </div>
       )
     },
@@ -212,6 +224,31 @@ const RulesSection = () => {
           <div className="bg-yellow-900/30 border-l-4 border-yellow-500 p-4 rounded">
             <p className="text-yellow-200 font-medium">Submission Requirements:</p>
             <p className="text-gray-300 mt-2">Each team must submit source code repo on GitHub or equivalent, and create an optional demo video or presentation. Submissions must be completed by the end of the 24-hour period.</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'mentorship',
+      title: 'Mentorship & Support',
+      icon: <Users className="w-6 h-6" />,
+      content: (
+        <div className="space-y-4">
+          <div className="flex items-start space-x-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+            <p className="text-gray-300">Teams will receive on-site mentorship and technical assistance during the hackathon if and when needed</p>
+          </div>
+          <div className="flex items-start space-x-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+            <p className="text-gray-300">Mentors will be available to provide guidance on design, architecture, strategy, or debugging</p>
+          </div>
+          <div className="flex items-start space-x-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+            <p className="text-gray-300">Organizers will also assign support volunteers to assist with logistics and queries</p>
+          </div>
+          <div className="bg-blue-900/30 border-l-4 border-blue-500 p-4 rounded">
+            <p className="text-blue-200 font-medium">Support Available:</p>
+            <p className="text-gray-300 mt-2">Technical mentors and logistics volunteers will be present throughout the 24-hour period to ensure smooth execution and help teams overcome challenges.</p>
           </div>
         </div>
       )
@@ -345,7 +382,47 @@ const RulesSection = () => {
           </div>
         </div>
       )
-    }
+    },
+    {
+  id: 'intellectual',
+  title: 'Intellectual Property & Promotion',
+  icon: <Shield className="w-6 h-6" />,
+  content: (
+    <div className="space-y-6">
+      <div>
+        <h4 className="text-green-500 font-semibold mb-3">Ownership Rights</h4>
+        <div className="space-y-3">
+          <div className="flex items-start space-x-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+            <p className="text-gray-300">All participants retain full ownership of their projects and intellectual property</p>
+          </div>
+          <div className="flex items-start space-x-3">
+            <div className="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+            <p className="text-gray-300">Organizers will not claim any commercial rights or profits</p>
+          </div>
+        </div>
+      </div>
+      
+      <div>
+        <h4 className="text-green-500 font-semibold mb-3">Promotional Rights</h4>
+        <div className="bg-gray-800 p-4 rounded-lg space-y-3">
+          <p className="text-gray-300">By participating, teams grant the organizers non-exclusive rights to:</p>
+          <div className="ml-4 space-y-2">
+            <div className="flex items-start space-x-3">
+              <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+              <p className="text-gray-300">Publicly display winning projects, team names, or visuals for event promotion (website, social media, brochures)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-blue-900/30 border-l-4 border-blue-500 p-4 rounded">
+        <p className="text-blue-200 font-medium">Privacy Guarantee:</p>
+        <p className="text-gray-300 mt-2">Only winning project titles will be published post-event. Project code/content will not be shared without explicit permission.</p>
+      </div>
+    </div>
+  )
+}
   ];
 
   return (
