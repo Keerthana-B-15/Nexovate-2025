@@ -33,8 +33,13 @@ const Navbar = () => {
   };
 
   const handleDownloadPPT = () => {
-    // Open Google Docs presentation in new tab
-    window.open('https://docs.google.com/presentation/d/1nLcUWZf3fxeff_A62P4u_RqpbArnlU_TCCK5EE9kZvE/edit?usp=drivesdk', '_blank');
+    // Create a temporary link element and trigger download
+    const link = document.createElement('a');
+    link.href = 'NEXOVATE PPT Template.pptx';
+    link.download = 'NEXOVATE PPT Template.pptx';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -151,9 +156,9 @@ const Navbar = () => {
                 handleDownloadPPT();
                 setIsMenuOpen(false);
               }}
-              className="bg-gradient-to-r from-primary to-[#dddf23] text-black py-3 px-6 rounded-full font-bold text-center tracking-wide hover:scale-105 transition-all duration-300 mt-4"
+              className="bg-gradient-to-r from-blue-500 to-yellow-400 text-black py-3 px-6 rounded-full font-bold text-center tracking-wide hover:scale-105 transition-all duration-300 mt-4"
             >
-              DOWNLOAD PPT FORMAT
+              DOWNLOAD PPT
             </button>
           </nav>
         </div>

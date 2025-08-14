@@ -4,7 +4,7 @@ const CollegeMap = () => {
   const collegeInfo = {
     name: "Presidency University, Bengaluru ",
     address: "Itgalpur Rajanakunte, Yelahanka, Bengaluru, Karnataka 560064",
-    coordinates: "13.1724724,77.5289109", // Yelahanka coordinates
+    coordinates: "13.1718° N, 77.5362° E", // Presidency University / Yelahanka coordinates
   };
 
 
