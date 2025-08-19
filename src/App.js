@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
+import ChiefGuestProfile from './components/ChiefGuestProfile';
 import Tracks from './components/Tracks';
 import RulesSection from './components/RulesSection';
 import Team from './components/Team';
@@ -16,6 +17,7 @@ const App = () => (
     <Navbar />
     <Hero />
     <About />
+    <ChiefGuestProfile />
     <Tracks />
     <RulesSection />
     <Timeline />
