@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer';
 
 const events = [
   { 
-    stage: "Domain & Problem Statements Released", 
+    stage: "Tracks are Released", 
     date: "14th August", 
     details: "Registrations Open • PPT submission",
     color: "border-[#6ebe44]", 
@@ -14,7 +14,7 @@ const events = [
   },
   { 
     stage: "Registration Deadline", 
-    date: "20th August", 
+    date: "21st August, 11:59 PM", 
     details: "Final day for team registration and initial submissions",
     color: "border-red-500", 
     bgColor: "bg-red-500/10",
@@ -23,7 +23,7 @@ const events = [
   },
   { 
     stage: "Evaluation Phase", 
-    date: "21st - 22nd August", 
+    date: "22nd - 23rd August", 
     details: "Evaluation done on all submissions",
     color: "border-orange-500", 
     bgColor: "bg-orange-500/10",
@@ -32,7 +32,7 @@ const events = [
   },
   { 
     stage: "Results Declaration", 
-    date: "23rd August, 10 AM", 
+    date: "24th August, 10 AM", 
     details: "Shortlisted teams announced",
     color: "border-blue-500", 
     bgColor: "bg-blue-500/10",
