@@ -11,9 +11,9 @@ const teamMembers = [
   { name: "JAHNU TANAI KUMAR HINDUPUR", role: "Event Coordinator", image: "assets/tanai.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
   { name: "KEERTHANA B", role: "Web Developer", image: "assets/keerthana.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
   { name: "SARAH FAROOQUI", role: "Sponsorship In-Charge", image: "assets/sarah.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
+  { name: "SHRUJANYA M", role: "Treasurer", image: "assets/shrujanya.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
   { name: "PRAVEEN SALAME", role: "Designer", image: "assets/praveen.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
   { name: "RUDRA BAJARIYA", role: "Marketing In-Charge", image: "assets/rudra.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
-  { name: "SHRUJANYA M", role: "Treasurer", image: "assets/shrujanya.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
   { name: "RISHABH REDDY G C", role: "Core Member", image: "assets/rishabh.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
   { name: "SHREERAKSHA R ADIGA", role: "Core Member", image: "assets/shreeraksha.png", bgGradient: "from-[#6ebe44] to-[#dddf23]", category: "core" },
 ];
