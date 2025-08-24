@@ -1,28 +1,6 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { AlertCircle } from 'lucide-react';
-
-// Announcement Banner Component
-const AnnouncementBanner = () => {
-  return (
-    <div className="bg-gradient-to-r from-[#6ebe44] via-red-500 to-[#dddf23] text-white py-4 px-6 relative overflow-hidden">
-      <div className="absolute inset-0 bg-black opacity-20"></div>
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="flex items-center justify-center gap-4">
-          <div className="flex items-center gap-2">
-            <AlertCircle className="w-6 h-6 animate-pulse" />
-            <span className="font-bold text-lg">LIVE UPDATE</span>
-          </div>
-          <div className="hidden md:block w-1 h-8 bg-white/50"></div>
-          <div className="text-sm md:text-base font-medium text-center">
-            Kindly wait for the shortlisted teams announcement. We will ensure to make the announcement as soon as possible. We thank you for your patience.
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const events = [
   { 
@@ -54,12 +32,12 @@ const events = [
   },
   { 
     stage: "Results Declaration", 
-    date: "24th August, 10 AM", 
-    details: "Shortlisted teams announcement - HAPPENING SOON!",
+    date: "24th August, 6:30PM", 
+    details: "Shortlisted teams announced",
     color: "border-red-500", 
     bgColor: "bg-gradient-to-r from-red-500/10 to-[#dddf23]/10",
     icon: "🎯",
-    status: "pending-today"
+    status: "completed"
   },
   { 
     stage: "Main Hackathon Event", 
@@ -170,7 +148,6 @@ const Timeline = () => {
 
   return (
     <>
-      <AnnouncementBanner />
       <section id="timeline" className="py-20 px-6 max-w-6xl mx-auto relative overflow-hidden">
         {/* Background decorative elements */}
         <div className="absolute inset-0 opacity-5">
@@ -199,14 +176,15 @@ const Timeline = () => {
               <div className="absolute inset-0 w-8 h-8 bg-red-500/30 rounded-full animate-ping"></div>
             </div>
             <div className="ml-4">
-              <h3 className="text-2xl font-bold text-white mb-2">🎯 Shortlist Announcements In Progress</h3>
+              <h3 className="text-2xl font-bold text-white mb-2">🎉 Shortlisted Teams Announced!</h3>
               <p className="text-gray-300 text-lg">
-                We will soon announce the selected teams. <span className="text-[#dddf23] font-bold">Check your inbox!</span>
+                The shortlisted teams have been announced. <span className="text-[#dddf23] font-bold">Check your inbox and the website!</span>
               </p>
               <p className="text-gray-400 text-sm mt-2">
-                📧 Official Notifications will be sent out soon
+                📧 Official notifications have been sent via email.
               </p>
             </div>
+
           </div>
         </div>
 
@@ -335,7 +313,7 @@ const Timeline = () => {
           <div className="inline-flex items-center space-x-3 text-gray-400 text-sm">
             <div className="w-3 h-px bg-gradient-to-r from-transparent via-[#6ebe44] to-transparent"></div>
             <span className="font-mono tracking-wider text-xs uppercase px-4 py-2 bg-gray-900/50 rounded-full border border-gray-800">
-              🏆 Just 5 days until the Main Event!
+              🏆 The Main Event is Almost Here!
             </span>
             <div className="w-3 h-px bg-gradient-to-l from-transparent via-[#dddf23] to-transparent"></div>
           </div>

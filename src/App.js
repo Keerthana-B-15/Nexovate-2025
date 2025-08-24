@@ -7,6 +7,7 @@ import RulesSection from './components/RulesSection';
 import Team from './components/Team';
 import Prizes from './components/Prizes';
 import Timeline from './components/Timeline';
+import Results from './components/Results';
 import Sponsors from './components/Sponsors';
 import CollegeMap from './components/CollegeMap';
 import FAQ from './components/FAQ';
@@ -21,6 +22,7 @@ const App = () => (
     <Tracks />
     <RulesSection />
     <Timeline />
+    <Results />
     <Sponsors />
     <Team />
     <Prizes />
