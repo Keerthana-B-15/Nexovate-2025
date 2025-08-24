@@ -71,7 +71,7 @@ const Results = () => {
             <div className="inline-flex items-center gap-3 bg-green-900/30 border border-green-500/30 rounded-full px-6 py-3">
               <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
               <span className="text-green-300 font-mono text-sm uppercase tracking-wider">
-                Results Announced • 24th August 2024
+                Results Announced • 24th August 2025
               </span>
             </div>
           </div>
