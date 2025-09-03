@@ -46,7 +46,7 @@ const events = [
     color: "border-[#dddf23]", 
     bgColor: "bg-[#dddf23]/10",
     icon: "🚀",
-    status: "upcoming"
+    status: "completed"
   },
 ];
 
